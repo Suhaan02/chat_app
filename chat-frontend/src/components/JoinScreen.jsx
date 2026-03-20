@@ -12,13 +12,29 @@ export default function JoinScreen({ onJoin }) {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Join a Chat Room</h2>
-      <input placeholder="Username" value={username}
-        onChange={e => setUsername(e.target.value)} /><br /><br />
-      <input placeholder="Room name" value={room}
-        onChange={e => setRoom(e.target.value)} /><br /><br />
-      <button onClick={handleJoin}>Join</button>
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+      width: '320px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem'
+    }}>
+      <h2 style={{ textAlign: 'center' }}>💬 Join a Room</h2>
+      <input
+        placeholder="Your username"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+      />
+      <input
+        placeholder="Room name"
+        value={room}
+        onChange={e => setRoom(e.target.value)}
+        onKeyDown={e => e.key === 'Enter' && handleJoin()}
+      />
+      <button onClick={handleJoin}>Join Room</button>
     </div>
   );
 }
